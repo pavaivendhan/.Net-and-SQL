@@ -11,6 +11,7 @@ CREATE TABLE Users (
     ContactNumber VARCHAR(20),
     Address TEXT
 );
+
 CREATE TABLE Couriers (
     CourierID INT PRIMARY KEY,
     SenderUserID INT,
@@ -22,11 +23,13 @@ CREATE TABLE Couriers (
     FOREIGN KEY (SenderUserID) REFERENCES Users(UserID),
     FOREIGN KEY (ReceiverUserID) REFERENCES Users(UserID)
 );
+
 CREATE TABLE CourierServices (
     ServiceID INT PRIMARY KEY,
     ServiceName VARCHAR(100),
     Cost DECIMAL(8, 2)
 );
+
 CREATE TABLE Employees (
     EmployeeID INT PRIMARY KEY,
     Name VARCHAR(255),
@@ -35,11 +38,13 @@ CREATE TABLE Employees (
     Role VARCHAR(50),
     Salary DECIMAL(10, 2)
 );
+
 CREATE TABLE Locations (
     LocationID INT PRIMARY KEY,
     LocationName VARCHAR(100),
     Address TEXT
 );
+
 CREATE TABLE Payments (
     PaymentID INT PRIMARY KEY,
     CourierID INT,
@@ -65,12 +70,16 @@ VALUES
 (9,'Duke', 'duke@gmail.com','duke@','9378212367','47 ghh'),
 (10,'Emly', 'emely@gmail.com','emely@','1378212367','56 edf');
 
+-- Insert sample data into Courier table
+
 INSERT INTO Couriers 
 VALUES 
 (1, 'Ben', '43Ofgg, CityF', 'Receiver A', '456 Maple Lane, CityG', 4.3, 'In Transit', 'TN123456', '2023-12-15'),
 (2, 'Neel', '352erert, CityH', 'Receiver B', '101 Elm Road, CityI', 2.1, 'Delivered', 'TN789012', '2023-12-16'),
 (3, 'Duke', '24Elm tre, CityH', 'Receiver C', '987 Maple Road, CityI', 4.5, 'Delivered', 'TN789456', '2023-12-18'),
 (4, 'Woon', '42Ortr, CityJ', 'Receiver D', '123 Pine Avenue, CityK', 5.2, 'In Transit', 'TN012345', '2023-12-19');
+
+-- Insert sample data into CourierServices table
 
 INSERT INTO CourierServices 
 VALUES
@@ -80,6 +89,8 @@ VALUES
 (4, 'ray Delivery', 95.99),
 (5, 'daily Shipping', 30.99);
 
+-- Insert sample data into Employee table
+
 INSERT INTO Employees 
 VALUES
 (1, 'John Doe', 'john.doe@example.com', '123-456-7890', 'Manager', 60000.00),
@@ -88,6 +99,8 @@ VALUES
 (4, 'Sam Wilson', 'sam.wilson@example.com', '777-888-9999', 'IT Specialist', 55000.00),
 (5, 'Emily Davis', 'emily.davis@example.com', '333-222-1111', 'Accountant', 50000.00);
 
+-- Insert sample data into Locations table
+
 INSERT INTO Locations (LocationID, LocationName, Address)
 VALUES
 (1, 'Office A', '123 Main Street, CityA'),
@@ -95,6 +108,8 @@ VALUES
 (3, 'Warehouse', '789 Pine Street, CityC'),
 (4, 'Warehouse B', '987 Cedar Street, CityD'),
 (5, 'Office C', '654 Birch Street, CityE');
+
+-- Insert sample data into Payments table
 
 INSERT INTO Payments 
 VALUES
