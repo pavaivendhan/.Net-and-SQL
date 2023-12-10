@@ -2,6 +2,7 @@
 
 CREATE database Courier_Management
 use Courier_Management;
+
 CREATE TABLE Users (
     UserID INT PRIMARY KEY,
     Name VARCHAR(255),
