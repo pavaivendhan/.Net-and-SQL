@@ -1,4 +1,4 @@
--- Task 1
+-- Task 1 (Database Design)
 
 CREATE database HMBank;
 
@@ -30,7 +30,8 @@ CREATE TABLE Transactions(
 	FOREIGN KEY (account_id) REFERENCES Accounts(account_id)
 );
 
---Task 2
+--Task 2 (Select, Where, Between, AND, LIKE)
+
 INSERT INTO Customers (customer_id, first_name, last_name, DOB, email, phone_number, address)
 VALUES
 (1,'hary', 'musk','2001-09-22','hary@gmail.com','2378212367','345 dfd st'),
@@ -134,8 +135,7 @@ FROM Customers
 WHERE address NOT LIKE '%specific_city%';
   
 
-
-  --Task 3
+--Task 3 (Aggregate functions, Having, Order By, GroupBy and Joins)
 
 --1
   SELECT AVG(balance) AS average_balance
@@ -233,7 +233,8 @@ GROUP BY transaction_date, amount, account_id
 HAVING COUNT(*) > 1;
 
 
---  Task 4
+--  Task 4 (Subquery and its type)
+
 -- 1. Retrieve the customer(s) with the highest account balance
 SELECT c.customer_id, c.first_name, c.last_name, MAX(a.balance) AS highest_balance
 FROM Customers c
