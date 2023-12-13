@@ -76,11 +76,11 @@ INSERT INTO ExhibitionArtworks (ExhibitionID, ArtworkID) VALUES
 --Queries 
 
 --1.Retrieve the names of all artists along with the number of artworks they have in the gallery, and list them in descending order of the number of artworks.
-SELECT Artists.Name, COUNT(Artworks.ArtworkID) AS NumArtworks
+SELECT Artists.Name, COUNT(Artworks.ArtworkID) AS No_of_Artworks
 FROM Artists
 LEFT JOIN Artworks ON Artists.ArtistID = Artworks.ArtistID
 GROUP BY Artists.ArtistID, Artists.Name
-ORDER BY NumArtworks DESC;
+ORDER BY No_of_Artworks DESC;
 
 
 --2. List the titles of artworks created by artists from 'Spanish' and 'Dutch' nationalities, and order them by the year in ascending order.
@@ -92,10 +92,10 @@ ORDER BY Artworks.Year ASC;
 
 
 --3. Find the names of all artists who have artworks in the 'Painting' category, and the number of artworks they have in this category.
-SELECT Artists.Name, COUNT(Artworks.ArtworkID) AS NumArtworks
+SELECT Artists.Name, COUNT(Artworks.ArtworkID) AS No_of_Artworks
 FROM Artists
 JOIN Artworks ON Artists.ArtistID = Artworks.ArtistID
-WHERE Artworks.CategoryID = 1 -- Assuming 'Painting' has CategoryID 1
+WHERE Artworks.CategoryID = 1 
 GROUP BY Artists.ArtistID, Artists.Name;
 
 
@@ -232,11 +232,11 @@ FROM Artists
 JOIN Artworks AS MonaLisaArtwork ON Artists.ArtistID = MonaLisaArtwork.ArtistID
 JOIN Categories ON MonaLisaArtwork.CategoryID = Categories.CategoryID
 JOIN Artworks ON Categories.CategoryID = Artworks.CategoryID
-WHERE Artworks.Title <> 'Mona Lisa';
+WHERE Artworks.Title = 'Mona Lisa';
 
 
 --20. List the names of artists and the number of artworks they have in the gallery.
-SELECT Artists.Name, COUNT(Artworks.ArtworkID) AS NumArtworks
+SELECT Artists.Name, COUNT(Artworks.ArtworkID) AS No_of_Artworks
 FROM Artists
 LEFT JOIN Artworks ON Artists.ArtistID = Artworks.ArtistID
 GROUP BY Artists.ArtistID, Artists.Name;
