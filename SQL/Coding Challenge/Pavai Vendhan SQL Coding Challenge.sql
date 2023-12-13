@@ -1,3 +1,5 @@
+--Virtual Art Gallery Database
+
 Create DATABASE Gallery ;
 
 use Gallery;
